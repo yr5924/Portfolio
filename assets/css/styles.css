@@ -247,14 +247,16 @@ img {
 
 .about__circle {
   position: absolute;
-  width: 315px; /* Adjust the size as needed */
-  height: 315px; /* Adjust the size as needed */
+  width: 360px; /* Adjust the size as needed */
+  height: 335px; /* Adjust the size as needed */
   background-color: rgba(255, 223, 186, 0.5); /* Example background color */
   border-radius: 50%;
-  top: 50%; /* Center it vertically relative to the image */
-  left: 50%; /* Center it horizontally */
+  top: 42%; /* Center it vertically relative to the image */
+  left: 49%; /* Center it horizontally */
   transform: translate(-50%, -50%); /* Center the circle */
   z-index: -1; /* Send the circle behind the image */
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4); /* Enhanced shadow effect */
+  animation: pop 0.5s ease-in-out infinite alternate; /* Animation */
 }
 
 .about__img {
@@ -267,6 +269,16 @@ img {
   position: relative; /* Keep the image above the circle */
   z-index: 1; /* Bring the image above the circle */
 }
+
+@keyframes pop {
+  0% {
+    transform: translate(-50%, -50%) scale(1); /* Original size */
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.05); /* Slightly larger */
+  }
+}
+
 /* Keyframes for Drop Effect */
 @keyframes dropIn {
   0% {
@@ -388,13 +400,6 @@ img {
   display: block;
   text-align: center;
   transition: transform 0.3s;
-}
-
-.projects__img {
-  position: relative;
-  display: block;
-  text-align: center;
-  transition: transform 0.3s;
   margin: 20px; /* Space between project items */
   text-decoration: none; /* Remove underline from links */
 }
@@ -410,16 +415,20 @@ img {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(173, 216, 230, 0.5);
+  background: rgba(173, 216, 230, 0.2); /* Slightly less opaque for better visibility */
   border-radius: 10px; /* Adjust as needed */
-  box-shadow: 0 0 10px rgba(173, 216, 230, 0.7), 0 0 20px rgba(173, 216, 230, 0.5); /* Light blue glow */
+  box-shadow: 
+    0 0 10px rgba(173, 216, 230, 0.7), /* Light blue glow */
+    0 0 20px rgba(173, 216, 230, 0.5); /* Light blue glow */
   transition: background 0.3s, box-shadow 0.3s;
   z-index: -1;
 }
 
 .projects__img:hover::before {
   background: rgba(173, 216, 230, 0.1); /* Light blue background on hover */
-  box-shadow: 0 0 20px rgba(173, 216, 230, 1), 0 0 30px rgba(173, 216, 230, 0.8); /* Increased glow on hover */
+  box-shadow: 
+    0 0 20px rgba(173, 216, 230, 1), /* Increased glow on hover */
+    0 0 30px rgba(173, 216, 230, 0.8); /* Increased glow */
 }
 
 .projects__description {
@@ -427,6 +436,7 @@ img {
   margin-top: 5px; /* Space between title and description */
   font-size: 0.9em; /* Adjust size if needed */
 }
+
 .skills__container {
   display: flex;
   justify-content: space-between;
